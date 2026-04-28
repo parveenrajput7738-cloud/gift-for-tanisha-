@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tanisha 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 40%, #1a0a2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .petal {
+    position: fixed;
+    font-size: 18px;
+    animation: floatDown linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+  }
+  @keyframes floatDown {
+    0% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  /* === LANDING SCREEN === */
+  #landing {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .gift-box {
+    font-size: 90px;
+    animation: giftPulse 2s ease-in-out infinite;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 20px rgba(255, 160, 200, 0.6));
+  }
+  @keyframes giftPulse {
+    0%, 100% { transform: scale(1) rotate(-2deg); }
+    50% { transform: scale(1.08) rotate(2deg); }
+  }
+
+  .landing-flowers {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .landing-flowers span {
+    font-size: 32px;
+    animation: sway 2.5s ease-in-out infinite;
+  }
+  .landing-flowers span:nth-child(2) { animation-delay: 0.3s; }
+  .landing-flowers span:nth-child(3) { animation-delay: 0.6s; }
+  .landing-flowers span:nth-child(4) { animation-delay: 0.9s; }
+  .landing-flowers span:nth-child(5) { animation-delay: 1.2s; }
+  @keyframes sway {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+  }
+
+  .to-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 32px);
+    color: #f9d6f0;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+    text-shadow: 0 0 20px rgba(255,180,220,0.5);
+  }
+
+  .tap-hint {
+    color: rgba(255,200,230,0.75);
+    font-size: clamp(13px, 3vw, 16px);
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-transform: uppercase;
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .heart-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .heart-row span {
+    font-size: 20px;
+    animation: heartbeat 1.4s ease-in-out infinite;
+  }
+  .heart-row span:nth-child(2) { animation-delay: 0.2s; font-size: 26px; }
+  .heart-row span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.15); }
+    70% { transform: scale(1); }
+  }
+
+  /* === MAIN LETTER SCREEN === */
+  #letter-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    z-index: 10;
+    padding: 30px 16px 60px;
+  }
+
+  .letter-card {
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,200,230,0.2);
+    border-radius: 24px;
+    padding: clamp(24px, 5vw, 48px);
+    position: relative;
+  }
+
+  .letter-top-deco {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .letter-top-deco .flowers-top {
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .flowers-top span { animation: sway 2.5s ease-in-out infinite; }
+  .flowers-top span:nth-child(2) { animation-delay: 0.4s; }
+  .flowers-top span:nth-child(3) { animation-delay: 0.8s; }
+  .flowers-top span:nth-child(4) { animation-delay: 1.2s; }
+  .flowers-top span:nth-child(5) { animation-delay: 1.6s; }
+
+  .letter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 40px);
+    color: #f5c8e8;
+    text-align: center;
+    margin-bottom: 8px;
+    text-shadow: 0 0 30px rgba(255,160,200,0.4);
+  }
+
+  .letter-subtitle {
+    font-size: 13px;
+    color: rgba(255,200,230,0.55);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .divider-line { flex: 1; height: 1px; background: rgba(255,200,230,0.2); }
+  .divider-heart { font-size: 14px; color: #f9a8d4; }
+
+  .section {
+    margin-bottom: 32px;
+    animation: fadeInUp 0.8s ease both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(17px, 3.5vw, 22px);
+    color: #f5c8e8;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  .section p {
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: rgba(255, 220, 240, 0.82);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  .highlight {
+    color: #f9a8d4;
+    font-style: italic;
+  }
+
+  .bottom-deco {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .bottom-flowers {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .bottom-flowers span { animation: sway 3s ease-in-out infinite; }
+  .bottom-flowers span:nth-child(2) { animation-delay: 0.5s; }
+  .bottom-flowers span:nth-child(3) { animation-delay: 1s; }
+  .bottom-flowers span:nth-child(4) { animation-delay: 1.5s; }
+
+  .sign-off {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 4vw, 26px);
+    color: #f5c8e8;
+    margin-bottom: 4px;
+  }
+  .sign-name {
+    font-size: 13px;
+    color: rgba(255,180,220,0.6);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .final-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 22px;
+  }
+  .final-hearts span { animation: heartbeat 1.4s ease-in-out infinite; }
+  .final-hearts span:nth-child(2) { animation-delay: 0.15s; font-size: 30px; }
+  .final-hearts span:nth-child(3) { animation-delay: 0.3s; }
+
+  .corner-flower {
+    position: absolute;
+    font-size: 28px;
+    pointer-events: none;
+  }
+  .cf-tl { top: -14px; left: 10px; transform: rotate(-20deg); }
+  .cf-tr { top: -14px; right: 10px; transform: rotate(20deg); }
+  .cf-bl { bottom: -14px; left: 10px; transform: rotate(20deg); }
+  .cf-br { bottom: -14px; right: 10px; transform: rotate(-20deg); }
+
+  .section:nth-child(1) { animation-delay: 0.1s; }
+  .section:nth-child(2) { animation-delay: 0.25s; }
+  .section:nth-child(3) { animation-delay: 0.4s; }
+  .section:nth-child(4) { animation-delay: 0.55s; }
+  .section:nth-child(5) { animation-delay: 0.7s; }
+</style>
+</head>
+<body>
+
+<!-- LANDING SCREEN -->
+<div id="landing" onclick="openLetter()">
+  <div class="landing-flowers">
+    <span>🌸</span><span>🌺</span><span>💐</span><span>🌸</span><span>🌷</span>
+  </div>
+  <div class="gift-box">🎁</div>
+  <p class="to-name">For Tanisha</p>
+  <p class="tap-hint">✨ Tap to open your gift ✨</p>
+  <div class="heart-row">
+    <span>💕</span><span>❤️</span><span>💕</span>
+  </div>
+</div>
+
+<!-- LETTER SCREEN -->
+<div id="letter-screen">
+  <div class="letter-card">
+
+    <span class="corner-flower cf-tl">🌸</span>
+    <span class="corner-flower cf-tr">🌷</span>
+    <span class="corner-flower cf-bl">🌺</span>
+    <span class="corner-flower cf-br">🌸</span>
+
+    <div class="letter-top-deco">
+      <div class="flowers-top">
+        <span>🌸</span><span>🌺</span><span>💐</span><span>🌸</span><span>🌷</span>
+      </div>
+      <h1 class="letter-title">Hey, Tanisha 💕</h1>
+      <p class="letter-subtitle">Something I always meant to say</p>
+    </div>
+
+    <div class="section">
+      <span class="section-icon">🌟</span>
+      <h3>You are kind of rare</h3>
+      <p>
+        You know, not everyone gets a best friend like you. I did. And honestly, sometimes I still can't believe how lucky that is.
+        You're not just someone I talk to — you're the person I think of first when something good happens, and the first one I need when something doesn't.
+        That's not small. That's actually <span class="highlight">everything</span>.
+      </p>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><span class="divider-heart">💗</span><div class="divider-line"></div></div>
+
+    <div class="section">
+      <span class="section-icon">🫂</span>
+      <h3>You made the hard days easier</h3>
+      <p>
+        There were moments I didn't know how to carry things. Days that felt heavy for no clear reason.
+        And without even trying too hard, you made them lighter.
+        Not by fixing anything — just by <span class="highlight">being there</span>. That matters more than you know.
+        More than I've probably ever said out loud.
+      </p>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><span class="divider-heart">💗</span><div class="divider-line"></div></div>
+
+    <div class="section">
+      <span class="section-icon">✨</span>
+      <h3>I see how much you carry</h3>
+      <p>
+        You're strong in ways people don't always notice. You keep going, you show up, you hold a lot together
+        without ever asking for a round of applause. I see it. I've always seen it.
+        And I want you to know — <span class="highlight">your softness is not weakness. It's one of the best things about you.</span>
+      </p>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><span class="divider-heart">💗</span><div class="divider-line"></div></div>
+
+    <div class="section">
+      <span class="section-icon">🌷</span>
+      <h3>Thank you. For real.</h3>
+      <p>
+        For every time you listened when you were probably tired too.
+        For laughing at things that maybe only we find funny.
+        For not judging me when I was being ridiculous — and for telling me when I was.
+        For trusting me with pieces of yourself. I don't take that lightly.
+        <span class="highlight">Having you in my life is genuinely one of the best things that happened to me.</span>
+      </p>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><span class="divider-heart">💗</span><div class="divider-line"></div></div>
+
+    <div class="section">
+      <span class="section-icon">🎗️</span>
+      <h3>This is a promise</h3>
+      <p>
+        I'll be here. Not just when things are fun, but when they're messy and confusing and hard.
+        I'll still pick up. I'll still show up.
+        Because that's what this is — <span class="highlight">real friendship</span>.
+        And you deserve to feel as safe and loved as you make everyone else feel.
+      </p>
+    </div>
+
+    <div class="bottom-deco">
+      <div class="bottom-flowers">
+        <span>🌸</span><span>💐</span><span>🌺</span><span>🌷</span>
+      </div>
+      <p class="sign-off">Always yours,</p>
+      <p class="sign-name">Parveen 🤍</p>
+      <div class="final-hearts">
+        <span>💕</span><span>❤️</span><span>💕</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.top = Math.random() * 100 + 'vh';
+    s.style.animationDelay = (Math.random() * 4) + 's';
+    s.style.animationDuration = (2 + Math.random() * 3) + 's';
+    document.body.appendChild(s);
+  }
+
+  const petalEmojis = ['🌸', '🌺', '🌷', '💮', '🏵️', '🌼'];
+  function spawnPetal() {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+    p.style.left = (Math.random() * 100) + 'vw';
+    p.style.fontSize = (14 + Math.random() * 16) + 'px';
+    const dur = 6 + Math.random() * 8;
+    p.style.animationDuration = dur + 's';
+    p.style.animationDelay = (Math.random() * 4) + 's';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), (dur + 5) * 1000);
+  }
+  for (let i = 0; i < 14; i++) spawnPetal();
+  setInterval(spawnPetal, 1800);
+
+  function openLetter() {
+    const landing = document.getElementById('landing');
+    landing.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    landing.style.opacity = '0';
+    landing.style.transform = 'scale(0.85)';
+    setTimeout(() => {
+      landing.style.display = 'none';
+      const ls = document.getElementById('letter-screen');
+      ls.style.display = 'block';
+      ls.style.opacity = '0';
+      ls.style.transition = 'opacity 0.8s ease';
+      setTimeout(() => ls.style.opacity = '1', 50);
+    }, 800);
+  }
+</script>
+</body>
+</html>
